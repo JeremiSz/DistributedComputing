@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c979b0cd-fcfa-4e7e-9d75-4f6906eeff6e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SMP_APP.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/Presentation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/ConnectedDatagramSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/CounterClient1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/CounterClientHelper1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/CounterServer1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/DatagramMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/DaytimeClient1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/DaytimeClient2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/DaytimeClientHelper1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/DaytimeClientHelper2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/DaytimeServer1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/DaytimeServer2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/EchoClient1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/EchoClient2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/EchoClientHelper1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/EchoClientHelper2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/EchoServer1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/EchoServer2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/EchoServer3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/EchoServerThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/Example1Receiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/Example1Sender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/Example2ReceiverSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/Example2SenderReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/Example3Receiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/Example3Sender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/Example4ConnectionAcceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/Example4ConnectionRequestor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/MyClientDatagramSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/MyDatagramSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/MyServerDatagramSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample_code/MyStreamSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/Presentation.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2M3NaryOaFWJoJxWtY1vqPvKsqg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Extra/DistCompProj/SMP_APP/src/sample_code",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Extra\DistCompProj\SMP_APP\src\sample_code" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Presentation">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.Application" />
+      <module name="SMP_APP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Presentation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.Presentation" />
+      <module name="SMP_APP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Presentation" />
+        <item itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c979b0cd-fcfa-4e7e-9d75-4f6906eeff6e" name="Changes" comment="" />
+      <created>1676992377223</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676992377223</updated>
+      <workItem from="1676992379271" duration="5669000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
