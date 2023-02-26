@@ -5,16 +5,50 @@ import javax.swing.*;
 public class Presentation {
 
     public static void main(String[] args) {
-        var userInfo = createUserInfo();
-        var app = new Application(userInfo);
-        int result;
+        var app = makeConnection();
+        choiceMenu(app);
+        JOptionPane.showMessageDialog(null,app.close());
+    }
+    private static void choiceMenu(Application app){
+        String[] options = new String[3];
+        options[0] = "Write";
+        options[1] = "Read";
+        options[2] = "Close";
+        int choice;
+        do{
+            choice = JOptionPane.showOptionDialog(null,
+                    "Choose option","Choose",
+                    JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,
+                    null,options,options[0]);
+            switch (choice) {
+                case (0) -> write(app);
+                case (1) -> read(app);
+            }
+        }while (choice < 2);
+    }
+    private static void write(Application app){
+        var text = JOptionPane.showInputDialog("Write your message");
+        var result = app.write(text);
+        if (result == null) result ="Failed to send message";
+        JOptionPane.showMessageDialog(null,result);
+    }
+    private static void read(Application app){
+        var result = app.read();
+        if (result == null) result = "Failed to retrieve messages";
+        JOptionPane.showMessageDialog(null,result);
+    }
+
+    private static Application makeConnection(){
+        Application app;
+        UserInfo userInfo;
         do {
-            var message = JOptionPane.showInputDialog("Message: ");
-            var response =  app.echo(message);
-            result = JOptionPane.showConfirmDialog(null,
-                    response + "; Continue?");
-        }while (result == JOptionPane.YES_OPTION);
-        app.close();
+            userInfo = createUserInfo();
+            app = Application.AppBuilder(userInfo.hostName, userInfo.portNum);
+        } while (app == null);
+
+        var result = app.login(userInfo.name, userInfo.password);
+        JOptionPane.showMessageDialog(null,result);
+        return app;
     }
     static class UserInfo{
         public String name;
@@ -28,7 +62,7 @@ public class Presentation {
         public void setPortNum(String portNum) {
             this.portNum =
                     portNum.isEmpty() ?
-                    DEFAULT_PORT_NUMBER : Integer.parseInt(portNum);;
+                    DEFAULT_PORT_NUMBER : Integer.parseInt(portNum);
         }
         public void setHostName(String hostNameIn){
             this.hostName = hostNameIn.isEmpty() ? DEFAULT_HOST_NAME : hostNameIn;
