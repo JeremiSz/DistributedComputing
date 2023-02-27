@@ -14,10 +14,12 @@ public class SMTServerThread implements Runnable{
     MyStreamSocket myDataSocket;
     Presentation presentation;
     String username;
+    MessageStorage messageStorage;
 
-    public SMTServerThread(MyStreamSocket myDataSocket,Presentation presentation) {
+    public SMTServerThread(MyStreamSocket myDataSocket,Presentation presentation, MessageStorage messageStorage) {
         this.myDataSocket = myDataSocket;
         this.presentation = presentation;
+        this.messageStorage = messageStorage;
     }
 
     public void run( ) {
@@ -54,10 +56,9 @@ public class SMTServerThread implements Runnable{
             myDataSocket.sendMessage(SMTHelper.sendError(3003));
             return;
         }
-        //get data
-        String[] sampleAuthors = {"a","b"};
-        String[] sampleTexts = {"c","d"};
-        myDataSocket.sendMessage(SMTHelper.successfulRead(sampleAuthors,sampleTexts));
+        String[] authors = messageStorage.getAuthors();
+        String[] texts = messageStorage.getTexts();
+        myDataSocket.sendMessage(SMTHelper.successfulRead(authors,texts));
     }
     private void write(Dictionary<String,String> data) throws IOException{
         var text = data.get(SMTHelper.WRITE_TEXT);
@@ -65,8 +66,7 @@ public class SMTServerThread implements Runnable{
             myDataSocket.sendMessage(SMTHelper.sendError(2003));
             return;
         }
-        //save message
-        presentation.log("saved " + text + " by " + username);
+        messageStorage.addMessage(username,text);
         myDataSocket.sendMessage(SMTHelper.successfulWrite());
     }
     private boolean logout(Dictionary<String,String> data) throws IOException {

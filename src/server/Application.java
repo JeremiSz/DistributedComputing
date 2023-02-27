@@ -15,6 +15,7 @@ public class Application {
     static Presentation presentation;
     public static void main(String[] args) {
         presentation = new Presentation();
+        var messageStorage = new MessageStorage();
         int serverPort;
         serverPort = (args.length == 1 )? Integer.parseInt(args[0]) : Application.DEFAULT_PORT_NUM;
         try (var myConnectionSocket = new ServerSocket(serverPort)) {
@@ -23,7 +24,7 @@ public class Application {
                 presentation.log("Waiting for a connection.");
                 var myDataSocket = new MyStreamSocket(myConnectionSocket.accept());
                 presentation.log("connection accepted");
-                (new Thread(new SMTServerThread(myDataSocket,presentation))).start();
+                (new Thread(new SMTServerThread(myDataSocket,presentation,messageStorage))).start();
             }
         }
         catch (Exception ex) {

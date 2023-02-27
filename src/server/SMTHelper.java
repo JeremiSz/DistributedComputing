@@ -52,7 +52,7 @@ public class SMTHelper {
         for (var author : authors){
             builder.append(":").append(author);
         }
-        builder.append(",texts:");
+        builder.append(",texts");
         for(var text : texts){
             builder.append(":").append(text);
         }
