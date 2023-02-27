@@ -1,6 +1,5 @@
 package server;
 
-import sample_code.EchoServerThread;
 import sample_code.MyStreamSocket;
 
 import java.net.ServerSocket;
@@ -18,14 +17,13 @@ public class Application {
         presentation = new Presentation();
         int serverPort;
         serverPort = (args.length == 1 )? Integer.parseInt(args[0]) : Application.DEFAULT_PORT_NUM;
-        try {
-            ServerSocket myConnectionSocket = new ServerSocket(serverPort);
+        try (var myConnectionSocket = new ServerSocket(serverPort)) {
             presentation.log("Echo server ready.");
             while (true) {
                 presentation.log("Waiting for a connection.");
-                MyStreamSocket myDataSocket = new MyStreamSocket(myConnectionSocket.accept());
+                var myDataSocket = new MyStreamSocket(myConnectionSocket.accept());
                 presentation.log("connection accepted");
-                (new Thread(new EchoServerThread(myDataSocket))).start();
+                (new Thread(new SMTServerThread(myDataSocket,presentation))).start();
             }
         }
         catch (Exception ex) {

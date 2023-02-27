@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c979b0cd-fcfa-4e7e-9d75-4f6906eeff6e" name="Changes" comment="Recreated echo server">
-      <change afterPath="$PROJECT_DIR$/src/client/SMTHelper.java" afterDir="false" />
+    <list default="true" id="c979b0cd-fcfa-4e7e-9d75-4f6906eeff6e" name="Changes" comment="Added front end to client for login, read, write and log off. Created SMT helper class.">
+      <change afterPath="$PROJECT_DIR$/src/server/SMTHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/SMTServerThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Presentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Presentation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,24 +35,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Extra/DistCompProj/SMP_APP/src/sample_code&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Extra/DistCompProj/SMP_APP/src/sample_code",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Extra\DistCompProj\SMP_APP\src\sample_code" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="RunManager" selected="Application.Presentation">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.Application" />
       <module name="SMP_APP" />
@@ -93,7 +101,9 @@
       <workItem from="1676992379271" duration="6042000" />
       <workItem from="1677235848231" duration="568000" />
       <workItem from="1677404409671" duration="551000" />
-      <workItem from="1677405282424" duration="5185000" />
+      <workItem from="1677405282424" duration="5457000" />
+      <workItem from="1677501899001" duration="4080000" />
+      <workItem from="1677506528894" duration="2420000" />
     </task>
     <task id="LOCAL-00001" summary="Recreated echo server">
       <created>1676998215712</created>
@@ -102,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676998215712</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added front end to client for login, read, write and log off. Created SMT helper class.">
+      <created>1677410771066</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1677410771066</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +138,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Recreated echo server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Recreated echo server" />
+    <MESSAGE value="Added front end to client for login, read, write and log off. Created SMT helper class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added front end to client for login, read, write and log off. Created SMT helper class." />
   </component>
 </project>
