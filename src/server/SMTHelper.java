@@ -6,7 +6,6 @@ import java.util.Hashtable;
 public class SMTHelper {
     public final static String COMMAND = "command";
     public final static String LOGIN_USERNAME = "username";
-    public final static String LOGIN_PASSWORD = "password";
     public final static String WRITE_TEXT = "text";
     public final static String COMMAND_LOGIN = "login";
     public final static String COMMAND_READ = "read";
@@ -48,7 +47,7 @@ public class SMTHelper {
     public static String successfulLogout(){return  TEMPLATE_ERROR.formatted(COMMAND_LOGOUT,4001,"Logout successfully");}
     public static String successfulWrite(){return  TEMPLATE_ERROR.formatted(COMMAND_WRITE,2001,"Message received successfully");}
     public static String successfulRead(String[] authors,String[] texts){
-        var builder = new StringBuilder(COMMAND).append(":").append(COMMAND_READ).append(",code:3001,").append("author");
+        var builder = new StringBuilder(COMMAND).append(":").append(COMMAND_READ).append(",code:3001,").append("authors");
         for (var author : authors){
             builder.append(":").append(author);
         }

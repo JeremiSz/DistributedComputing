@@ -1,13 +1,24 @@
 package client;
 
 import javax.swing.*;
+import java.util.Dictionary;
+
+import static java.lang.Math.min;
 
 public class Presentation {
 
     public static void main(String[] args) {
         var app = makeConnection();
         choiceMenu(app);
-        JOptionPane.showMessageDialog(null,app.close());
+    }
+    private static int logout(Application app){
+        var responce = app.close();
+        var code = Integer.parseInt(responce.get(SMTHelper.ATTR_CODE));
+        if (4001 != code){
+            JOptionPane.showMessageDialog(null,responce.get(SMTHelper.ATTR_MEANING));
+            return 2;
+        }
+        return 3;
     }
     private static void choiceMenu(Application app){
         String[] options = new String[3];
@@ -23,19 +34,37 @@ public class Presentation {
             switch (choice) {
                 case (0) -> write(app);
                 case (1) -> read(app);
+                case (2) -> choice = logout(app);
             }
-        }while (choice < 2);
+        }while (choice < 3);
     }
     private static void write(Application app){
         var text = JOptionPane.showInputDialog("Write your message");
         var result = app.write(text);
-        if (result == null) result ="Failed to send message";
-        JOptionPane.showMessageDialog(null,result);
+        var code = Integer.parseInt(result.get(SMTHelper.ATTR_CODE));
+        if (code != 2001){
+            JOptionPane.showMessageDialog(null,result.get(SMTHelper.ATTR_MEANING));
+        }
     }
     private static void read(Application app){
         var result = app.read();
-        if (result == null) result = "Failed to retrieve messages";
-        JOptionPane.showMessageDialog(null,result);
+        var code = Integer.parseInt(result.get(SMTHelper.ATTR_CODE));
+        if (code != 3001){
+            JOptionPane.showMessageDialog(null,result.get(SMTHelper.ATTR_MEANING));
+        }
+        else{
+            var textarea = new StringBuilder();
+            var authors = SMTHelper.extractArray(result.get(SMTHelper.ATTR_AUTHORS));
+            var texts = SMTHelper.extractArray(result.get(SMTHelper.ATTR_TEXTS));
+            var size = min(authors.length,texts.length);
+            for (int i = 0;i<size;i++){
+                textarea.append(authors[i])
+                        .append(":")
+                        .append(texts[i])
+                        .append("\n");
+            }
+            JOptionPane.showMessageDialog(null,textarea);
+        }
     }
 
     private static Application makeConnection(){
@@ -45,9 +74,19 @@ public class Presentation {
             userInfo = createUserInfo();
             app = Application.AppBuilder(userInfo.hostName, userInfo.portNum);
         } while (app == null);
+        Dictionary<String,String> result;
+        boolean loginComplete = false;
+        do{
+            result = app.login(userInfo.name, userInfo.password);
+            var code = Integer.parseInt(result.get(SMTHelper.ATTR_CODE));
+            if (code == 1001){
+                loginComplete = true;
+            }
+            else {
+                JOptionPane.showMessageDialog(null,result.get(SMTHelper.ATTR_MEANING));
+            }
 
-        var result = app.login(userInfo.name, userInfo.password);
-        JOptionPane.showMessageDialog(null,result);
+        }while (!loginComplete);
         return app;
     }
     static class UserInfo{

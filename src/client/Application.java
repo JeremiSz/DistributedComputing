@@ -4,6 +4,7 @@ import sample_code.EchoClientHelper2;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.util.Dictionary;
 
 /**
  * Code sampled from EchoClient2 from course content.
@@ -23,14 +24,16 @@ public class Application {
         }
     }
 
-    public String login(String name, String password){
+    public Dictionary<String,String> login(String name, String password){
         try {
             var message = SMTHelper.createLogin(name,password);
-            return echoClientHelper.getEcho(message);
+            var responce = echoClientHelper.getEcho(message);
+            return SMTHelper.parse(responce);
+
         }
         catch (Exception ex){
             handleIt(ex);
-            return null;
+            return SMTHelper.GENERIC_LOGIN_ERROR;
         }
     }
     private Application(String hostName, int portNum) throws IOException {
@@ -44,36 +47,38 @@ public class Application {
                 "Error",
                 JOptionPane.ERROR_MESSAGE);
     }
-    public String close(){
-        var message = "";
+    public Dictionary<String,String> close(){
         try {
-            message = SMTHelper.createLogout();
-            message = echoClientHelper.getEcho(message);
+            var message = SMTHelper.createLogout();
+            var responce = echoClientHelper.getEcho(message);
             echoClientHelper.done();
+            return SMTHelper.parse(responce);
         }
         catch (Exception ex){
             handleIt(ex);
+            return SMTHelper.GENERIC_LOGOUT_ERROR;
         }
-        return message;
     }
-    public String write(String text){
+    public Dictionary<String,String> write(String text){
         var message = SMTHelper.createWrite(text);
         try {
-            return echoClientHelper.getEcho(message);
+            var responce = echoClientHelper.getEcho(message);
+            return SMTHelper.parse(responce);
         }
         catch (Exception ex){
             handleIt(ex);
-            return null;
+            return SMTHelper.GENERIC_WRITE_ERROR;
         }
     }
-    public String read(){
+    public Dictionary<String,String> read(){
         var message = SMTHelper.createRead();
         try {
-            return echoClientHelper.getEcho(message);
+            var responce = echoClientHelper.getEcho(message);
+            return SMTHelper.parse(responce);
         }
         catch (Exception ex){
             handleIt(ex);
-            return null;
+            return SMTHelper.GENERIC_READ_ERROR;
         }
     }
 }
