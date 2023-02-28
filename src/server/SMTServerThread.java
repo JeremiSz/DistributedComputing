@@ -11,10 +11,10 @@ import java.util.Dictionary;
  */
 
 public class SMTServerThread implements Runnable{
-    MyStreamSocket myDataSocket;
-    Presentation presentation;
+    final MyStreamSocket myDataSocket;
+    final Presentation presentation;
     String username;
-    MessageStorage messageStorage;
+    final MessageStorage messageStorage;
 
     public SMTServerThread(MyStreamSocket myDataSocket,Presentation presentation, MessageStorage messageStorage) {
         this.myDataSocket = myDataSocket;

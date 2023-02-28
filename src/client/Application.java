@@ -1,7 +1,5 @@
 package client;
 
-import sample_code.EchoClientHelper2;
-
 import javax.swing.*;
 import java.io.IOException;
 import java.util.Dictionary;
@@ -12,7 +10,7 @@ import java.util.Dictionary;
  * @author M. L. Liu
  */
 public class Application {
-    private final EchoClientHelper2 echoClientHelper;
+    private final SecureClient client;
 
     public static Application AppBuilder(String hostName, int portNum){
         try{
@@ -27,8 +25,8 @@ public class Application {
     public Dictionary<String,String> login(String name, String password){
         try {
             var message = SMTHelper.createLogin(name,password);
-            var responce = echoClientHelper.getEcho(message);
-            return SMTHelper.parse(responce);
+            var response = client.sendMessage(message);
+            return SMTHelper.parse(response);
 
         }
         catch (Exception ex){
@@ -37,7 +35,7 @@ public class Application {
         }
     }
     private Application(String hostName, int portNum) throws IOException {
-        echoClientHelper = new EchoClientHelper2(hostName, String.valueOf(portNum));
+        client = new SecureClient(hostName, portNum);
     }
 
     private static void handleIt(Exception ex){
@@ -50,9 +48,9 @@ public class Application {
     public Dictionary<String,String> close(){
         try {
             var message = SMTHelper.createLogout();
-            var responce = echoClientHelper.getEcho(message);
-            echoClientHelper.done();
-            return SMTHelper.parse(responce);
+            var response = client.sendMessage(message);
+            client.done();
+            return SMTHelper.parse(response);
         }
         catch (Exception ex){
             handleIt(ex);
@@ -62,8 +60,8 @@ public class Application {
     public Dictionary<String,String> write(String text){
         var message = SMTHelper.createWrite(text);
         try {
-            var responce = echoClientHelper.getEcho(message);
-            return SMTHelper.parse(responce);
+            var response = client.sendMessage(message);
+            return SMTHelper.parse(response);
         }
         catch (Exception ex){
             handleIt(ex);
@@ -73,8 +71,8 @@ public class Application {
     public Dictionary<String,String> read(){
         var message = SMTHelper.createRead();
         try {
-            var responce = echoClientHelper.getEcho(message);
-            return SMTHelper.parse(responce);
+            var response = client.sendMessage(message);
+            return SMTHelper.parse(response);
         }
         catch (Exception ex){
             handleIt(ex);

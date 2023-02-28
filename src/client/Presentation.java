@@ -9,13 +9,16 @@ public class Presentation {
 
     public static void main(String[] args) {
         var app = makeConnection();
+        if (app == null){
+            return;
+        }
         choiceMenu(app);
     }
     private static int logout(Application app){
-        var responce = app.close();
-        var code = Integer.parseInt(responce.get(SMTHelper.ATTR_CODE));
+        var response = app.close();
+        var code = Integer.parseInt(response.get(SMTHelper.ATTR_CODE));
         if (4001 != code){
-            JOptionPane.showMessageDialog(null,responce.get(SMTHelper.ATTR_MEANING));
+            JOptionPane.showMessageDialog(null,response.get(SMTHelper.ATTR_MEANING));
             return 2;
         }
         return 3;
@@ -69,11 +72,10 @@ public class Presentation {
 
     private static Application makeConnection(){
         Application app;
-        UserInfo userInfo;
-        do {
-            userInfo = createUserInfo();
-            app = Application.AppBuilder(userInfo.hostName, userInfo.portNum);
-        } while (app == null);
+        UserInfo userInfo = createUserInfo();
+        app = Application.AppBuilder(userInfo.hostName, userInfo.portNum);
+        if (app == null)
+            return app;
         Dictionary<String,String> result;
         boolean loginComplete = false;
         do{

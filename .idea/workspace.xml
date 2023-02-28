@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c979b0cd-fcfa-4e7e-9d75-4f6906eeff6e" name="Changes" comment="Added synchronised storage to backend.">
+    <list default="true" id="c979b0cd-fcfa-4e7e-9d75-4f6906eeff6e" name="Changes" comment="Cleaned up UI to not show network messages.">
+      <change afterPath="$PROJECT_DIR$/src/client/SecureClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Presentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/SMTHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/SMTHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/SMTHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/SMTHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/SMTServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/SMTServerThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +30,12 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="NamedScopeManager">
+    <scope name="myWork" pattern="(src:server.*||src:client.*)&amp;&amp;!src:sample_code.*" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2M3NaryOaFWJoJxWtY1vqPvKsqg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -40,39 +47,31 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TODO_SCOPE": "All Places",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Extra/DistCompProj/SMP_APP/src/sample_code",
+    "last_opened_file_path": "C:/Extra/DistCompProj/SMP_APP/out/production/SMP_APP/client",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Extra\DistCompProj\SMP_APP\out\production\SMP_APP\client" />
       <recent name="C:\Extra\DistCompProj\SMP_APP\src\sample_code" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Presentation">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="server.Application" />
-      <module name="SMP_APP" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.server">
     <configuration name="Presentation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.Presentation" />
       <module name="SMP_APP" />
+      <option name="PROGRAM_PARAMETERS" value="-Djavax.net.ssl.trustStore=public.jks -Djavax.net.ssl.trustStorePassword=password" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/out/production/SMP_APP/client" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="client.*" />
@@ -83,10 +82,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="server" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="server.Application" />
+      <module name="SMP_APP" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/out/production/SMP_APP/server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.server" />
+      <item itemvalue="Application.Presentation" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Presentation" />
-        <item itemvalue="Application.Application" />
+        <item itemvalue="Application.server" />
       </list>
     </recent_temporary>
   </component>
@@ -103,7 +120,8 @@
       <workItem from="1677404409671" duration="551000" />
       <workItem from="1677405282424" duration="5457000" />
       <workItem from="1677501899001" duration="4080000" />
-      <workItem from="1677506528894" duration="9450000" />
+      <workItem from="1677506528894" duration="9926000" />
+      <workItem from="1677592588436" duration="6317000" />
     </task>
     <task id="LOCAL-00001" summary="Recreated echo server">
       <created>1676998215712</created>
@@ -133,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677511318836</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Cleaned up UI to not show network messages.">
+      <created>1677516426157</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677516426157</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +180,7 @@
     <MESSAGE value="Added front end to client for login, read, write and log off. Created SMT helper class." />
     <MESSAGE value="Added command detection and SMTServerThread and reply messages to backend" />
     <MESSAGE value="Added synchronised storage to backend." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added synchronised storage to backend." />
+    <MESSAGE value="Cleaned up UI to not show network messages." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up UI to not show network messages." />
   </component>
 </project>
