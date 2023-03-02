@@ -6,15 +6,25 @@ import java.util.Dictionary;
 import static java.lang.Math.min;
 
 public class Presentation {
+    private final Application app;
+    private final SMTHelper helper;
+
+    private Presentation(){
+        app = makeConnection();
+        helper = new SMTHelper();
+    }
 
     public static void main(String[] args) {
-        var app = makeConnection();
-        if (app == null){
+        var presentation = new Presentation();
+        if (presentation.hasApp()){
             return;
         }
-        choiceMenu(app);
+        presentation.choiceMenu();
     }
-    private static int logout(Application app){
+    public boolean hasApp(){
+        return this.app != null;
+    }
+    private int logout(){
         var response = app.close();
         var code = Integer.parseInt(response.get(SMTHelper.ATTR_CODE));
         if (4001 != code){
@@ -23,7 +33,7 @@ public class Presentation {
         }
         return 3;
     }
-    private static void choiceMenu(Application app){
+    private void choiceMenu(){
         String[] options = new String[3];
         options[0] = "Write";
         options[1] = "Read";
@@ -35,13 +45,13 @@ public class Presentation {
                     JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,
                     null,options,options[0]);
             switch (choice) {
-                case (0) -> write(app);
-                case (1) -> read(app);
-                case (2) -> choice = logout(app);
+                case (0) -> write();
+                case (1) -> read();
+                case (2) -> choice = logout();
             }
         }while (choice < 3);
     }
-    private static void write(Application app){
+    private void write(){
         var text = JOptionPane.showInputDialog("Write your message");
         var result = app.write(text);
         var code = Integer.parseInt(result.get(SMTHelper.ATTR_CODE));
@@ -49,7 +59,7 @@ public class Presentation {
             JOptionPane.showMessageDialog(null,result.get(SMTHelper.ATTR_MEANING));
         }
     }
-    private static void read(Application app){
+    private void read(){
         var result = app.read();
         var code = Integer.parseInt(result.get(SMTHelper.ATTR_CODE));
         if (code != 3001){
@@ -57,8 +67,8 @@ public class Presentation {
         }
         else{
             var textarea = new StringBuilder();
-            var authors = SMTHelper.extractArray(result.get(SMTHelper.ATTR_AUTHORS));
-            var texts = SMTHelper.extractArray(result.get(SMTHelper.ATTR_TEXTS));
+            var authors = helper.extractArray(result.get(SMTHelper.ATTR_AUTHORS));
+            var texts = helper.extractArray(result.get(SMTHelper.ATTR_TEXTS));
             var size = min(authors.length,texts.length);
             for (int i = 0;i<size;i++){
                 textarea.append(authors[i])
@@ -75,20 +85,14 @@ public class Presentation {
         UserInfo userInfo = createUserInfo();
         app = Application.AppBuilder(userInfo.hostName, userInfo.portNum);
         if (app == null)
-            return app;
+            return null;
         Dictionary<String,String> result;
-        boolean loginComplete = false;
-        do{
-            result = app.login(userInfo.name, userInfo.password);
-            var code = Integer.parseInt(result.get(SMTHelper.ATTR_CODE));
-            if (code == 1001){
-                loginComplete = true;
-            }
-            else {
-                JOptionPane.showMessageDialog(null,result.get(SMTHelper.ATTR_MEANING));
-            }
-
-        }while (!loginComplete);
+        result = app.login(userInfo.name, userInfo.password);
+        var code = Integer.parseInt(result.get(SMTHelper.ATTR_CODE));
+        if (code != 1001){
+            JOptionPane.showMessageDialog(null,result.get(SMTHelper.ATTR_MEANING));
+            return null;
+        }
         return app;
     }
     static class UserInfo{

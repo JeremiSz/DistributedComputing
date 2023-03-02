@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c979b0cd-fcfa-4e7e-9d75-4f6906eeff6e" name="Changes" comment="Cleaned up UI to not show network messages.">
-      <change afterPath="$PROJECT_DIR$/src/client/SecureClient.java" afterDir="false" />
+    <list default="true" id="c979b0cd-fcfa-4e7e-9d75-4f6906eeff6e" name="Changes" comment="attempted to add TLS/SSL">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Presentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/SMTHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/SMTHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/SMTHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/SMTHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/SMTServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/SMTServerThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +34,7 @@
     <scope name="myWork" pattern="(src:server.*||src:client.*)&amp;&amp;!src:sample_code.*" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2M3NaryOaFWJoJxWtY1vqPvKsqg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -42,35 +42,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TODO_SCOPE": "All Places",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Extra/DistCompProj/SMP_APP/out/production/SMP_APP/client",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Extra/DistCompProj/SMP_APP/out/production/SMP_APP/client&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Extra\DistCompProj\SMP_APP\out\production\SMP_APP\client" />
       <recent name="C:\Extra\DistCompProj\SMP_APP\src\sample_code" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.server">
+  <component name="RunManager" selected="Application.Presentation">
     <configuration name="Presentation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.Presentation" />
       <module name="SMP_APP" />
-      <option name="PROGRAM_PARAMETERS" value="-Djavax.net.ssl.trustStore=public.jks -Djavax.net.ssl.trustStorePassword=password" />
+      <option name="VM_PARAMETERS" value="-Djavax.net.ssl.trustStore=public.jks -Djavax.net.ssl.trustStorePassword=password" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/out/production/SMP_APP/client" />
       <extension name="coverage">
         <pattern>
@@ -121,7 +121,9 @@
       <workItem from="1677405282424" duration="5457000" />
       <workItem from="1677501899001" duration="4080000" />
       <workItem from="1677506528894" duration="9926000" />
-      <workItem from="1677592588436" duration="6317000" />
+      <workItem from="1677592588436" duration="6596000" />
+      <workItem from="1677675014841" duration="5427000" />
+      <workItem from="1677762198138" duration="5230000" />
     </task>
     <task id="LOCAL-00001" summary="Recreated echo server">
       <created>1676998215712</created>
@@ -158,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677516426157</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="attempted to add TLS/SSL">
+      <created>1677600044381</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677600044381</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +190,7 @@
     <MESSAGE value="Added command detection and SMTServerThread and reply messages to backend" />
     <MESSAGE value="Added synchronised storage to backend." />
     <MESSAGE value="Cleaned up UI to not show network messages." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up UI to not show network messages." />
+    <MESSAGE value="attempted to add TLS/SSL" />
+    <option name="LAST_COMMIT_MESSAGE" value="attempted to add TLS/SSL" />
   </component>
 </project>

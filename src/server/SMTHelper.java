@@ -12,7 +12,7 @@ public class SMTHelper {
     public final static String COMMAND_WRITE = "write";
     public final static String COMMAND_LOGOUT = "logout";
     private final static String TEMPLATE_ERROR = "command:%s,code:%d,meaning:%s";
-    public static Dictionary<String,String> parse(String message){
+    public Dictionary<String,String> parse(String message){
         var data = new Hashtable<String,String>();
         var tokens = message.split(",");
         for (var token : tokens){
@@ -22,7 +22,7 @@ public class SMTHelper {
         }
         return data;
     }
-    public static String sendError(int code){
+    public String sendError(int code){
         String message = null;
         switch (code){
             case(1002) -> message = makeError(COMMAND_LOGIN,code,"Other login error");
@@ -38,15 +38,15 @@ public class SMTHelper {
         }
         return message;
     }
-    private static String makeError(String command,int code, String meaning){
+    private String makeError(String command,int code, String meaning){
         return TEMPLATE_ERROR.formatted(command,code,meaning);
     }
-    public static String successfulLogin(){
+    public String successfulLogin(){
         return TEMPLATE_ERROR.formatted(COMMAND_LOGIN,1001,"Login successfully");
     }
-    public static String successfulLogout(){return  TEMPLATE_ERROR.formatted(COMMAND_LOGOUT,4001,"Logout successfully");}
-    public static String successfulWrite(){return  TEMPLATE_ERROR.formatted(COMMAND_WRITE,2001,"Message received successfully");}
-    public static String successfulRead(String[] authors,String[] texts){
+    public String successfulLogout(){return  TEMPLATE_ERROR.formatted(COMMAND_LOGOUT,4001,"Logout successfully");}
+    public String successfulWrite(){return  TEMPLATE_ERROR.formatted(COMMAND_WRITE,2001,"Message received successfully");}
+    public String successfulRead(String[] authors,String[] texts){
         var builder = new StringBuilder(COMMAND).append(":").append(COMMAND_READ).append(",code:3001,").append("authors");
         for (var author : authors){
             builder.append(":").append(author);

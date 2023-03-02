@@ -11,6 +11,7 @@ import java.util.Dictionary;
  */
 public class Application {
     private final SecureClient client;
+    private final SMTHelper helper;
 
     public static Application AppBuilder(String hostName, int portNum){
         try{
@@ -24,9 +25,9 @@ public class Application {
 
     public Dictionary<String,String> login(String name, String password){
         try {
-            var message = SMTHelper.createLogin(name,password);
+            var message = helper.createLogin(name,password);
             var response = client.sendMessage(message);
-            return SMTHelper.parse(response);
+            return helper.parse(response);
 
         }
         catch (Exception ex){
@@ -36,6 +37,7 @@ public class Application {
     }
     private Application(String hostName, int portNum) throws IOException {
         client = new SecureClient(hostName, portNum);
+        helper = new SMTHelper();
     }
 
     private static void handleIt(Exception ex){
@@ -47,10 +49,10 @@ public class Application {
     }
     public Dictionary<String,String> close(){
         try {
-            var message = SMTHelper.createLogout();
+            var message = helper.createLogout();
             var response = client.sendMessage(message);
             client.done();
-            return SMTHelper.parse(response);
+            return helper.parse(response);
         }
         catch (Exception ex){
             handleIt(ex);
@@ -58,10 +60,13 @@ public class Application {
         }
     }
     public Dictionary<String,String> write(String text){
-        var message = SMTHelper.createWrite(text);
+        text = text.replace(":","");
+        text = text.replace(",","");
+        text = text.replace("\n","");
+        var message = helper.createWrite(text);
         try {
             var response = client.sendMessage(message);
-            return SMTHelper.parse(response);
+            return helper.parse(response);
         }
         catch (Exception ex){
             handleIt(ex);
@@ -69,10 +74,10 @@ public class Application {
         }
     }
     public Dictionary<String,String> read(){
-        var message = SMTHelper.createRead();
+        var message = helper.createRead();
         try {
             var response = client.sendMessage(message);
-            return SMTHelper.parse(response);
+            return helper.parse(response);
         }
         catch (Exception ex){
             handleIt(ex);
