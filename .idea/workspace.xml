@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c979b0cd-fcfa-4e7e-9d75-4f6906eeff6e" name="Changes" comment="attempted to add TLS/SSL">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Presentation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/SMTHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/SMTHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/SMTHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/SMTHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/SMTServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/SMTServerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Application.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +68,7 @@
     <configuration name="Presentation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.Presentation" />
       <module name="SMP_APP" />
-      <option name="VM_PARAMETERS" value="-Djavax.net.ssl.trustStore=public.jks -Djavax.net.ssl.trustStorePassword=password" />
+      <option name="VM_PARAMETERS" value="-Djavax.net.ssl.trustStore=public_key.jks -Djavax.net.ssl.trustStorePassword=password -Djdk.tls.server.protocols=TLSv1.2 -Djdk.tls.client.protocols=TLSv1.2" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/out/production/SMP_APP/client" />
       <extension name="coverage">
         <pattern>
@@ -124,6 +122,9 @@
       <workItem from="1677592588436" duration="6596000" />
       <workItem from="1677675014841" duration="5427000" />
       <workItem from="1677762198138" duration="5230000" />
+      <workItem from="1678266394885" duration="899000" />
+      <workItem from="1678373580671" duration="328000" />
+      <workItem from="1678627260784" duration="929000" />
     </task>
     <task id="LOCAL-00001" summary="Recreated echo server">
       <created>1676998215712</created>
@@ -192,5 +193,16 @@
     <MESSAGE value="Cleaned up UI to not show network messages." />
     <MESSAGE value="attempted to add TLS/SSL" />
     <option name="LAST_COMMIT_MESSAGE" value="attempted to add TLS/SSL" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/client/SecureClient.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

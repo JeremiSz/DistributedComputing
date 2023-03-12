@@ -16,7 +16,7 @@ public class Presentation {
 
     public static void main(String[] args) {
         var presentation = new Presentation();
-        if (presentation.hasApp()){
+        if (!presentation.hasApp()){
             return;
         }
         presentation.choiceMenu();
@@ -67,14 +67,21 @@ public class Presentation {
         }
         else{
             var textarea = new StringBuilder();
-            var authors = helper.extractArray(result.get(SMTHelper.ATTR_AUTHORS));
-            var texts = helper.extractArray(result.get(SMTHelper.ATTR_TEXTS));
-            var size = min(authors.length,texts.length);
-            for (int i = 0;i<size;i++){
-                textarea.append(authors[i])
-                        .append(":")
-                        .append(texts[i])
-                        .append("\n");
+            var authors_str = result.get(SMTHelper.ATTR_AUTHORS);
+            var texts_str = result.get(SMTHelper.ATTR_TEXTS);
+            if (authors_str == null || texts_str == null){
+                textarea.append("No messages");
+            }
+            else {
+                var authors = helper.extractArray(authors_str);
+                var texts = helper.extractArray(texts_str);
+                var size = min(authors.length, texts.length);
+                for (int i = 0; i < size; i++) {
+                    textarea.append(authors[i])
+                            .append(":")
+                            .append(texts[i])
+                            .append("\n");
+                }
             }
             JOptionPane.showMessageDialog(null,textarea);
         }

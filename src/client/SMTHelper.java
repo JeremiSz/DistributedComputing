@@ -35,6 +35,9 @@ public class SMTHelper {
         var tokens = message.split(",");
         for (var token : tokens){
             var delimiter_index = token.indexOf(':');
+            if (delimiter_index < 0){
+                continue;
+            }
             var name = token.substring(0,delimiter_index);
             var value = token.substring(delimiter_index + 1);
             data.put(name,value);

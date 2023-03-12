@@ -19,7 +19,7 @@ import java.security.cert.CertificateException;
 public class Application {
     final static int DEFAULT_PORT_NUM = 1234;
     static Presentation presentation;
-    final static String KEY_FILE_NAME = "key.jks";
+    final static String KEY_FILE_NAME = "private_key.jks";
     final static char[] KEY_PASSWORD = "password".toCharArray();
     public static void main(String[] args) {
         presentation = new Presentation();
