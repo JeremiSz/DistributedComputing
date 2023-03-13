@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c979b0cd-fcfa-4e7e-9d75-4f6906eeff6e" name="Changes" comment="attempted to add TLS/SSL">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Presentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/SMTHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/SMTHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Application.java" afterDir="false" />
-    </list>
+    <list default="true" id="c979b0cd-fcfa-4e7e-9d75-4f6906eeff6e" name="Changes" comment="fixed security. Fixed error when server returned no messages in SMTHelper and Presentation." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +59,7 @@
       <recent name="C:\Extra\DistCompProj\SMP_APP\src\sample_code" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Presentation">
+  <component name="RunManager" selected="Application.server">
     <configuration name="Presentation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.Presentation" />
       <module name="SMP_APP" />
@@ -100,8 +95,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Presentation" />
         <item itemvalue="Application.server" />
+        <item itemvalue="Application.Presentation" />
       </list>
     </recent_temporary>
   </component>
@@ -124,7 +119,7 @@
       <workItem from="1677762198138" duration="5230000" />
       <workItem from="1678266394885" duration="899000" />
       <workItem from="1678373580671" duration="328000" />
-      <workItem from="1678627260784" duration="929000" />
+      <workItem from="1678627260784" duration="1033000" />
     </task>
     <task id="LOCAL-00001" summary="Recreated echo server">
       <created>1676998215712</created>
@@ -168,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677600044381</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fixed security. Fixed error when server returned no messages in SMTHelper and Presentation.">
+      <created>1678628274519</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678628274519</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,7 +194,8 @@
     <MESSAGE value="Added synchronised storage to backend." />
     <MESSAGE value="Cleaned up UI to not show network messages." />
     <MESSAGE value="attempted to add TLS/SSL" />
-    <option name="LAST_COMMIT_MESSAGE" value="attempted to add TLS/SSL" />
+    <MESSAGE value="fixed security. Fixed error when server returned no messages in SMTHelper and Presentation." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed security. Fixed error when server returned no messages in SMTHelper and Presentation." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
